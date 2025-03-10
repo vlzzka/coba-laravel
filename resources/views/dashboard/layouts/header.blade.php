@@ -1,5 +1,5 @@
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white">{{ auth()->user()->name }}</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="/">Valez Blog</a>
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
