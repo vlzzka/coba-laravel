@@ -14,6 +14,13 @@
           My Posts
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/sales">
+          <i class="bi bi-currency-dollar"></i>
+          Sales
+        </a>
+      </li>
     </ul>
 
     @can('admin')

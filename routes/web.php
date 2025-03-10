@@ -8,6 +8,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\SalesController;
+
 
 
 /*
@@ -74,4 +76,4 @@ Route::resource('/dashboard/categories', AdminCategoryController::class)->except
 
 Route::post('/categories/store', [AdminCategoryController::class, 'store'])->name('categories.store');
 
-
+Route::resource('/dashboard/sales', SalesController::class);
