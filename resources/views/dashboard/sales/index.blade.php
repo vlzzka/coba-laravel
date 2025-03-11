@@ -10,12 +10,12 @@
             <tr>
                 <th>No</th>
                 <th>Brand</th>
-                <th>processor</th>
-                <th>ram</th>
-                <th>storage</th>
-                <th>gpu</th>
-                <th>weight</th>
-                <th>price</th>
+                <th>Processor</th>
+                <th>Ram</th>
+                <th>Storage</th>
+                <th>GPU</th>
+                <th>Weight</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
