@@ -49,11 +49,12 @@ class SaleController extends Controller
     $sales = $query->orderBy($sortBy, $sortOrder)->paginate(100);
     $sales = $query->paginate(100);
 
-    $brands = Sale::select('brand')->distinct()->pluck('brand');
-    $processors = Sale::select('processor')->distinct()->pluck('processor');
-    $ramOptions = Sale::select('ram_gb')->distinct()->pluck('ram_gb');
-    $storageOptions = Sale::select('storage')->distinct()->pluck('storage');
-    $gpuOptions = Sale::select('gpu')->distinct()->pluck('gpu');
+    $brands = Sale::select('brand')->distinct()->orderBy('brand')->pluck('brand');
+    $processors = Sale::select('processor')->distinct()->orderBy('processor')->pluck('processor');
+    $ramOptions = Sale::select('ram_gb')->distinct()->orderBy('ram_gb')->pluck('ram_gb');
+    $storageOptions = Sale::select('storage')->distinct()->orderBy('storage')->pluck('storage');
+    $gpuOptions = Sale::select('gpu')->distinct()->orderBy('gpu')->pluck('gpu');
+
 
     return view('dashboard.sales.index', compact('sales', 'brands', 'processors', 'ramOptions', 'storageOptions', 'gpuOptions'))->with('sortBy', $sortBy)->with('sortOrder', $sortOrder);
 }

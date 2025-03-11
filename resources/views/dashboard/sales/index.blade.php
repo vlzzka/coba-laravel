@@ -58,14 +58,14 @@
   <table class="table table-striped" id="salesTable">
     <thead>
         <tr>
-            <th><a href="#" class="sortable" data-column="id">No</a></th>
-            <th><a href="#" class="sortable" data-column="brand">Brand</a></th>
-            <th><a href="#" class="sortable" data-column="processor">Processor</a></th>
-            <th><a href="#" class="sortable" data-column="ram_gb">RAM (GB)</a></th>
-            <th><a href="#" class="sortable" data-column="storage">Storage</a></th>
-            <th><a href="#" class="sortable" data-column="gpu">GPU</a></th>
-            <th><a href="#" class="sortable" data-column="weight_kg">Weight (KG)</a></th>
-            <th><a href="#" class="sortable" data-column="price_usd">Price</a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="id">No <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="brand">Brand <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="processor">Processor <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="ram_gb">RAM (GB) <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="storage">Storage <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="gpu">GPU <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="weight_kg">Weight (KG) <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="price_usd">Price <span class="sort-icon"></span></a></th>
         </tr>
     </thead>
     <tbody>
@@ -89,24 +89,43 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const sortableHeaders = document.querySelectorAll(".sortable");
-
-    sortableHeaders.forEach(header => {
-        header.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const column = this.getAttribute("data-column");
-            let sortOrder = urlParams.get("sortOrder") === "asc" ? "desc" : "asc";
-
-            urlParams.set("sortBy", column);
-            urlParams.set("sortOrder", sortOrder);
-
-            window.location.search = urlParams.toString();
-        });
-    });
-});
-</script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const sortableHeaders = document.querySelectorAll(".sortable");
+  
+      // Ambil parameter sorting dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentSortBy = urlParams.get("sortBy");
+      const currentSortOrder = urlParams.get("sortOrder");
+  
+      // Tambahkan panah ke kolom yang sedang diurutkan
+      if (currentSortBy) {
+          const activeHeader = document.querySelector(`[data-column="${currentSortBy}"] .sort-icon`);
+          if (activeHeader) {
+              activeHeader.innerHTML = currentSortOrder === "asc" ? " ▲" : " ▼";
+          }
+      }
+  
+      // Tambahkan event listener untuk sorting
+      sortableHeaders.forEach(header => {
+          header.addEventListener("click", function (e) {
+              e.preventDefault();
+  
+              const column = this.getAttribute("data-column");
+              let sortOrder = "asc"; // Default ascending
+  
+              // Jika kolom yang sama diklik, ubah arah sorting
+              if (currentSortBy === column && currentSortOrder === "asc") {
+                  sortOrder = "desc";
+              }
+  
+              urlParams.set("sortBy", column);
+              urlParams.set("sortOrder", sortOrder);
+  
+              window.location.search = urlParams.toString();
+          });
+      });
+  });
+  </script>
+  
 
 @endsection
