@@ -8,21 +8,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Produk</th>
-                <th>Jumlah</th>
-                <th>Harga</th>
-                <th>Total</th>
+                <th>No</th>
+                <th>Brand</th>
+                <th>processor</th>
+                <th>ram</th>
+                <th>storage</th>
+                <th>gpu</th>
+                <th>weight</th>
+                <th>price</th>
             </tr>
         </thead>
         <tbody>
             {{-- @foreach($sales as $sale)
                 <tr>
                     <td>{{ $sale->id }}</td>
-                    <td>{{ $sale->product_name }}</td>
-                    <td>{{ $sale->quantity }}</td>
-                    <td>{{ $sale->price }}</td>
-                    <td>{{ $sale->quantity * $item->price }}</td>
+                    <td>{{ $sale->brand }}</td>
+                    <td>{{ $sale->processor }}</td>
+                    <td>{{ $sale->ram }}</td>
+                    <td>{{ $sale->storage }}</td>
+                    <td>{{ $sale->gpu }}</td>
+                    <td>{{ $sale->weight }}</td>
+                    <td>{{ $sale->price}}</td>
                 </tr>
             @endforeach --}}
         </tbody>
