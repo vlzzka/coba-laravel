@@ -16,13 +16,13 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach($data as $item)
+            {{-- @foreach($sales as $sale)
                 <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->product_name }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>{{ $item->price }}</td>
-                    <td>{{ $item->quantity * $item->price }}</td>
+                    <td>{{ $sale->id }}</td>
+                    <td>{{ $sale->product_name }}</td>
+                    <td>{{ $sale->quantity }}</td>
+                    <td>{{ $sale->price }}</td>
+                    <td>{{ $sale->quantity * $item->price }}</td>
                 </tr>
             @endforeach --}}
         </tbody>
