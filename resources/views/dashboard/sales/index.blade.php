@@ -5,35 +5,27 @@
     <h1>Data Penjualan</h1>
 </div>
 
-<div class="table-responsive col-lg-10">
-  <table class="table table-striped" id="salesTable">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Brand</th>
-            <th>Processor</th>
-            <th>RAM (GB)</th>
-            <th>Storage</th>
-            <th>GPU</th>
-            <th>Weight (KG)</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-      @foreach ($sales as $sale)
-        <tr>
-            <td>{{ $sales->firstItem() + $loop->index }}</td>
-            <td>{{ $sale->brand }}</td>
-            <td>{{ $sale->processor }}</td>
-            <td>{{ $sale->ram_gb }}</td>
-            <td>{{ $sale->storage }}</td>
-            <td>{{ $sale->gpu }}</td>
-            <td>{{ $sale->weight_kg }}</td>
-            <td>{{ $sale->price_usd }}</td>
-        </tr>
-      @endforeach
-    </tbody>
-  </table>
-  {{ $sales->links() }}
-</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Produk</th>
+                <th>Jumlah</th>
+                <th>Harga</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{-- @foreach($data as $item)
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->product_name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->quantity * $item->price }}</td>
+                </tr>
+            @endforeach --}}
+        </tbody>
+    </table>
+
 @endsection
