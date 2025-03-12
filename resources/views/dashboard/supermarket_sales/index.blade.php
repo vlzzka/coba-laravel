@@ -30,7 +30,25 @@
         </tr>
     </thead>
     <tbody>
-      <!--  -->
+    <tbody>
+      @foreach($sales as $sale)
+      <tr>
+
+          <td>{{ $sale->id }}</td>
+          <td>{{ $sale->invoice_id }}</td>
+          <td>{{ $sale->branch }}</td>
+          <td>{{ $sale->city }}</td>
+          <td>{{ $sale->customer_type }}</td>
+          <td>{{ $sale->gender }}</td>
+          <td>{{ $sale->product_line }}</td>
+          <td>${{ number_format($sale->unit_price, 2) }}</td>
+          <td>{{ $sale->quantity }}</td>
+          <td>${{ number_format($sale->total, 2) }}</td>
+          <td>{{ $sale->date }}</td>
+          <td>{{ $sale->payment }}</td>
+          <td>{{ $sale->rating }}</td>
+      </tr>
+      @endforeach
     </tbody>
   </table>
 </div>

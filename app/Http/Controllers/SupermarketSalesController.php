@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SupermarketSales;
 
 class SupermarketSalesController extends Controller
 {
@@ -13,7 +14,8 @@ class SupermarketSalesController extends Controller
      */
     public function index()
     {
-        return view('dashboard.supermarket_sales.index');
+        $sales = SupermarketSales::all();
+        return view('dashboard.supermarket_sales.index', compact('sales'));
         
     }
 
