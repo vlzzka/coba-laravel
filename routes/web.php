@@ -79,4 +79,4 @@ Route::post('/categories/store', [AdminCategoryController::class, 'store'])->nam
 
 Route::resource('/dashboard/sales', SaleController::class);
 
-Route::resource('/dashboard/supermarket_sales', SupermarketSalesContoller::class);
+Route::resource('/dashboard/supermarket_sales', SupermarketSalesController::class);
