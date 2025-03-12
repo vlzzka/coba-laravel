@@ -21,6 +21,13 @@
           Sales
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/supermarket_sales">
+          <i class="bi bi-currency-dollar"></i>
+          Supermarket Sales
+        </a>
+      </li>
     </ul>
 
     @can('admin')
