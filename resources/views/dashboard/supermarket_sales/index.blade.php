@@ -7,53 +7,50 @@
 </div>
 
 <div class="table-responsive col-lg-10">
+
+<!-- tombol sorting -->
+<a href="{{ route('supermarket_sales.index', ['order' => 'asc']) }}">Sort: Rendah ke Tinggi</a> |
+<a href="{{ route('supermarket_sales.index', ['order' => 'desc']) }}">Sort: Tinggi ke Rendah</a>
+
   <table class="table table-striped" id="supermarket_salesTable">
     <thead>
-        <tr>
-            <th>No</th>
-            <th>Invoice_ID</th>
-            <th>Branch</th>
-            <th>City</th>
-            <th>Customer Type</th>
-            <th>Gender</th>
-            <th>Product Line</th>
-            <th>Quantity</th>
-            <th>Tax 5</th>
-            <th>Total</th>
-            <th>Date</th>
-            <th>Payment</th>
-            <th>Cogs</th>
-            <th>Gross Margin Precentage</th>
-            <th>Gross Income</th>
-            <th>Rating</th>
-
-        </tr>
+      <tr>
+          <th>No</th>
+          <th>Branch</th>
+          <th>City</th>
+          <th>Product Line</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Gross Margin Precentage</th>
+          <th>Gross Income</th>
+      </tr>
     </thead>
-    <tbody>
+    
     <tbody>
       @foreach($sales as $sale)
       <tr>
-
-          <td>{{ $sale->id }}</td>
-          <td>{{ $sale->invoice_id }}</td>
-          <td>{{ $sale->branch }}</td>
-          <td>{{ $sale->city }}</td>
-          <td>{{ $sale->customer_type }}</td>
-          <td>{{ $sale->gender }}</td>
-          <td>{{ $sale->product_line }}</td>
-          <td>${{ number_format($sale->unit_price, 2) }}</td>
-          <td>{{ $sale->quantity }}</td>
-          <td>${{ number_format($sale->total, 2) }}</td>
-          <td>{{ $sale->date }}</td>
-          <td>{{ $sale->payment }}</td>
-          <td>{{ $sale->rating }}</td>
-      </tr>
+        <td>{{ $sale->id }}</td>
+        <td>{{ $sale->branch }}</td>
+        <td>{{ $sale->city }}</td>
+        <td>{{ $sale->product_line }}</td>
+        <td>${{ number_format($sale->unit_price, 2) }}</td>
+        <td>{{ $sale->quantity }}</td>
+        <td>${{ number_format($sale->total, 2) }}</td>
+        <td>{{ $sale->date }}</td>
+        <td>{{ $sale->time }}</td>
+        <td>{{ $sale->gross_margin_percentage }}</td>
+        <td>{{ $sale->gross_income }}</td>
+    </tr>
       @endforeach
     </tbody>
-  </table>
+  </table>  
 </div>
-<div>
-  
+
+<div class="mt-3">
+  {{ $sales->links() }}
 </div>
 
 

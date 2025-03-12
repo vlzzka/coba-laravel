@@ -7,7 +7,7 @@
           Dashboard
         </a>
       </li>
-
+  
       <li class="nav-item">
         <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" aria-current="page" href="/dashboard/posts">
           <i class="bi bi-book"></i>

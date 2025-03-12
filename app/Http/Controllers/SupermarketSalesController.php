@@ -12,10 +12,13 @@ class SupermarketSalesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sales = SupermarketSales::all();
-        return view('dashboard.supermarket_sales.index', compact('sales'));
+        // $sales = SupermarketSales::all();
+        $order = $request->get('order', 'desc'); // Default: ascending (terendah ke tertinggi)
+    
+        $sales = SupermarketSales::orderBy('total', $order)->paginate(50);
+        return view('dashboard.supermarket_sales.index', compact('sales', 'order'));
         
     }
 
