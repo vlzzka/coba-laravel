@@ -5,9 +5,13 @@
     <h1>Data Penjualan</h1>
 </div>
 
+<a href="/dashboard/sales/chart" class="btn btn-primary mb-3">
+  Lihat Grafik Penjualan
+</a>
+
 <!-- Filter & Search Form -->
 <form action="{{ route('sales.index') }}" method="GET" class="mb-3">
-    <div class="row">
+    <div class="row col-lg-11">
         <div class="col-md-2">
             <select name="brand" class="form-control">
                 <option value="">Pilih Brand</option>
@@ -65,7 +69,7 @@
             <th><a href="#" class="sortable" style="text-decoration: none" data-column="storage">Storage <span class="sort-icon"></span></a></th>
             <th><a href="#" class="sortable" style="text-decoration: none" data-column="gpu">GPU <span class="sort-icon"></span></a></th>
             <th><a href="#" class="sortable" style="text-decoration: none" data-column="weight_kg">Weight (KG) <span class="sort-icon"></span></a></th>
-            <th><a href="#" class="sortable" style="text-decoration: none" data-column="price_usd">Price <span class="sort-icon"></span></a></th>
+            <th><a href="#" class="sortable" style="text-decoration: none" data-column="price_usd">Price ($) <span class="sort-icon"></span></a></th>
         </tr>
     </thead>
     <tbody>
